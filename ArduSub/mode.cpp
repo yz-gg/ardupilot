@@ -65,6 +65,9 @@ Mode *Sub::mode_from_mode_num(const Mode::Number mode)
     case Mode::Number::DAM_INSPECTION:
         ret = &mode_dam_inspection;
         break;
+    case Mode::Number::NETCAGE_INSPECTION:
+        ret = &mode_netcage_inspection;
+        break;
     default:
         break;
     }

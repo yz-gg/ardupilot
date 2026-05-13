@@ -52,7 +52,8 @@ public:
         MOTOR_DETECT = 20,  // Automatically detect motors orientation
         SURFTRAK =     21,  // Track distance above seafloor (hold range)
         DEPTH_HOLD =   22,   // Hold current depth with manual horizontal control
-        DAM_INSPECTION = 23  // Dam inspection mode
+        DAM_INSPECTION = 23,  // Dam inspection mode
+        NETCAGE_INSPECTION = 24 //Net cage inspection mode
     };
 
     // constructor
@@ -331,6 +332,40 @@ private:
     bool get_desired_euler_angles_pitch_roll(float& roll_d, float& pitch_d);
     void add_ROV_attitude_to_degrees(float& roll, float& pitch, float& yaw);
 };
+
+class ModeNetCageInspection : public Mode
+{
+
+public:
+    ModeNetCageInspection();
+
+    bool init(bool ignore_checks) override;
+    void run() override;
+
+    bool requires_GPS() const override { return false; }
+    bool has_manual_throttle() const override { return false; }
+    bool allows_arming(bool from_gcs) const override { return true; }
+    bool is_autopilot() const override { return false; }
+
+protected:
+
+    const char *name() const override { return "NETCAGE_INSPECTION"; }
+    const char *name4() const override { return "CAGE"; }
+
+private:
+
+    float netcage_target_distance_m = 0.5f;
+    float netcage_tangent_speed_ms = 0.0f;
+    float netcage_climb_rate_ms = 0.0f;
+    float netcage_target_z_m = 0.0f;
+    float initial_z_m = 0.0f;
+
+    AC_PID netcage_dist_pid;
+    AC_PID netcage_sway_pid;
+    AC_PID netcage_yaw_pid;
+
+};
+
 
 class ModeSurftrak : public ModeAlthold
 {
