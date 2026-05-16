@@ -1870,5 +1870,90 @@
       <field type="uint16_t[4]" name="rpm" units="rpm">RPM (eRPM).</field>
       <field type="uint16_t[4]" name="count">count of telemetry packets received (wraps at 65535).</field>
     </message>
+    <message id="11045" name="DVL_BI">
+      <description>Bottom-track instrument-frame velocity measurement.</description>
+      <field type="uint64_t" name="time_usec" units="us">Sample timestamp.</field>
+      <field type="uint8_t" name="valid">1 if cache valid.</field>
+      <field type="uint8_t" name="status">Driver status code.</field>
+      <field type="uint32_t" name="sequence">Driver update counter.</field>
+      <field type="float" name="vx" units="m/s">X velocity, forward positive.</field>
+      <field type="float" name="vy" units="m/s">Y velocity, starboard positive.</field>
+      <field type="float" name="vz" units="m/s">Z velocity, down positive.</field>
+      <field type="float" name="vel_error" units="m/s">Velocity error estimate.</field>
+    </message>
+
+    <message id="11046" name="DVL_BD">
+      <description>Bottom-track earth-frame distance measurement.</description>
+      <field type="uint64_t" name="time_usec" units="us">Sample timestamp.</field>
+      <field type="uint8_t" name="valid">1 if cache valid.</field>
+      <field type="uint8_t" name="status">Driver status code.</field>
+      <field type="uint32_t" name="sequence">Driver update counter.</field>
+      <field type="float" name="east" units="m">East distance.</field>
+      <field type="float" name="north" units="m">North distance.</field>
+      <field type="float" name="up" units="m">Up distance.</field>
+      <field type="float" name="bottom" units="m">Bottom distance.</field>
+      <field type="float" name="time_since_valid" units="s">Time since last valid estimate.</field>
+    </message>
+
+    <message id="11047" name="DVL_WI">
+      <description>Water-track instrument-frame velocity measurement.</description>
+      <field type="uint64_t" name="time_usec" units="us">Sample timestamp.</field>
+      <field type="uint8_t" name="valid">1 if cache valid.</field>
+      <field type="uint8_t" name="status">Driver status code.</field>
+      <field type="uint32_t" name="sequence">Driver update counter.</field>
+      <field type="float" name="vx" units="m/s">X velocity.</field>
+      <field type="float" name="vy" units="m/s">Y velocity.</field>
+      <field type="float" name="vz" units="m/s">Z velocity.</field>
+      <field type="float" name="vel_error" units="m/s">Velocity error estimate.</field>
+    </message>
+
+    <message id="11048" name="DVL_UA">
+      <description>DVL beam A water-track extended data.</description>
+      <field type="uint64_t" name="time_usec" units="us">Sample timestamp.</field>
+      <field type="uint8_t" name="valid">1 if cache valid.</field>
+      <field type="uint8_t" name="status">Driver status code.</field>
+      <field type="uint32_t" name="sequence">Driver update counter.</field>
+      <field type="float" name="velocity" units="m/s">Beam velocity.</field>
+      <field type="float" name="distance" units="m">Beam slant distance.</field>
+      <field type="float" name="rssi">Beam RSSI.</field>
+      <field type="float" name="nsd">Beam NSD.</field>
+    </message>
+
+    <message id="11049" name="DVL_UB">
+      <description>DVL beam B water-track extended data.</description>
+      <field type="uint64_t" name="time_usec" units="us">Sample timestamp.</field>
+      <field type="uint8_t" name="valid">1 if cache valid.</field>
+      <field type="uint8_t" name="status">Driver status code.</field>
+      <field type="uint32_t" name="sequence">Driver update counter.</field>
+      <field type="float" name="velocity" units="m/s">Beam velocity.</field>
+      <field type="float" name="distance" units="m">Beam slant distance.</field>
+      <field type="float" name="rssi">Beam RSSI.</field>
+      <field type="float" name="nsd">Beam NSD.</field>
+    </message>
+
+    <message id="11050" name="DVL_UC">
+      <description>DVL beam C water-track extended data.</description>
+      <field type="uint64_t" name="time_usec" units="us">Sample timestamp.</field>
+      <field type="uint8_t" name="valid">1 if cache valid.</field>
+      <field type="uint8_t" name="status">Driver status code.</field>
+      <field type="uint32_t" name="sequence">Driver update counter.</field>
+      <field type="float" name="velocity" units="m/s">Beam velocity.</field>
+      <field type="float" name="distance" units="m">Beam slant distance.</field>
+      <field type="float" name="rssi">Beam RSSI.</field>
+      <field type="float" name="nsd">Beam NSD.</field>
+    </message>
+
+    <message id="11051" name="DVL_UD">
+      <description>DVL beam D water-track extended data.</description>
+      <field type="uint64_t" name="time_usec" units="us">Sample timestamp.</field>
+      <field type="uint8_t" name="valid">1 if cache valid.</field>
+      <field type="uint8_t" name="status">Driver status code.</field>
+      <field type="uint32_t" name="sequence">Driver update counter.</field>
+      <field type="float" name="velocity" units="m/s">Beam velocity.</field>
+      <field type="float" name="distance" units="m">Beam slant distance.</field>
+      <field type="float" name="rssi">Beam RSSI.</field>
+      <field type="float" name="nsd">Beam NSD.</field>
+    </message>
+
   </messages>
 </mavlink>
