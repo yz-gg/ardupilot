@@ -1,5 +1,6 @@
 #include "Sub.h"
 
+//parameters
 #define NETCAGE_SWAY_VELOCITY_MS       0.10f
 #define NETCAGE_CLIMB_RATE_CMS         2.0f
 #define NETCAGE_FORWARD_CMD_MAX        0.35f
